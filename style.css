@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
-
+  font-family: 'Indie Flower', cursive, sans-serif;
 }
 
 /* Video Background */
@@ -18,7 +18,8 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-
+  width: 100vw;
+  height: 100vh;
 }
 
 video {
@@ -26,13 +27,16 @@ video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  object-fit: cover;
 }
 
 .video-overlay {
   position: fixed;
   left: 0;
   top: 0;
-
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Container */
@@ -46,7 +50,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .input-container {
@@ -69,6 +73,7 @@ h1 {
 label {
   font-weight: bold;
   margin-left: 10px;
+  letter-spacing: 2px;
 }
 
 input {
@@ -79,7 +84,7 @@ input {
   border-radius: 20px;
   background: #fff;
   outline: none;
-
+  font-family: 'Indie Flower', cursive;
 }
 
 /* Button */
@@ -90,10 +95,14 @@ button {
   margin-top: 15px;
   border: none;
   text-transform: uppercase;
-  background: #006959;
+  background: #1e3b1f;
   color: white;
   cursor: pointer;
   outline: none;
+}
+
+button:hover {
+  filter: brightness(115%);
 }
 
 
@@ -104,7 +113,7 @@ ul {
 }
 
 li {
-
+  display: inline-block;
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
@@ -123,20 +132,45 @@ li span {
   top: 60px;
 }
 
+.complete-title {
+  animation: complete 4s infinite;
+}
+
+@keyframes complete {
+  0% {
+    color: #13380f;
+  }
+
+  25% {
+    color: #467a4a;
+  }
+
+  50% {
+    color: #477554;
+    transform: scale(1.4);
+  }
+
+  75% {
+    color: #467a4a;
+  }
+
+  100% {
+    color: #13500d;
+  }
+}
+
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
-  .video-background {
 
-  }
-  
   video {
-
+    object-position: 70%;
     margin-top: -1px;
   }
 
   .container {
-
+    min-width: unset;
+    width: 95vw;
     min-height: 245px;
     padding: 20px;
     margin: 10px;
